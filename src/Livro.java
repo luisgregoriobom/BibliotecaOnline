@@ -5,7 +5,6 @@ public class Livro {
     private String isbn;
     private boolean disponivel;
 
-    // Construtor
     public Livro(String titulo, String autor, String genero, String isbn) {
         this.titulo = titulo;
         this.autor = autor;
@@ -14,7 +13,6 @@ public class Livro {
         this.disponivel = true;
     }
 
-    // Getters e Setters
     public String getTitulo() {
         return titulo;
     }

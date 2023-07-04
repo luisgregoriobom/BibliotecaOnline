@@ -6,14 +6,34 @@ public class Biblioteca {
     private List<UsuarioComum> listaUsuariosComuns;
     private List<Administrador> listaAdministradores;
 
-    // Construtor
     public Biblioteca() {
         this.listaLivros = new ArrayList<>();
         this.listaUsuariosComuns = new ArrayList<>();
         this.listaAdministradores = new ArrayList<>();
     }
 
-    // Métodos para cadastrar usuários
+    public void cadastrarLivro(Livro livro) {
+        listaLivros.add(livro);
+    }
+
+    public Livro buscarLivroPorTitulo(String titulo) {
+        for (Livro livro : listaLivros) {
+            if (livro.getTitulo().equals(titulo)) {
+                return livro;
+            }
+        }
+        return null;
+    }
+
+    public UsuarioComum buscarUsuarioPorNome(String nome) {
+        for (UsuarioComum usuario : listaUsuariosComuns) {
+            if (usuario.getNome().equals(nome)) {
+                return usuario;
+            }
+        }
+        return null;
+    }
+
     public void cadastrarUsuarioComum(UsuarioComum usuarioComum) {
         listaUsuariosComuns.add(usuarioComum);
     }
@@ -22,7 +42,6 @@ public class Biblioteca {
         listaAdministradores.add(administrador);
     }
 
-    // Métodos para gerenciamento de livros
     public List<Livro> consultarLivrosDisponiveis() {
         List<Livro> livrosDisponiveis = new ArrayList<>();
         for (Livro livro : listaLivros) {
@@ -47,7 +66,6 @@ public class Biblioteca {
         return false;
     }
 
-    // Métodos adicionais
     public List<Livro> consultarLivrosPorAutor(String autor) {
         List<Livro> livrosPorAutor = new ArrayList<>();
         for (Livro livro : listaLivros) {
